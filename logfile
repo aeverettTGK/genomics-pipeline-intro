@@ -1,0 +1,42 @@
+Aligning illumina datasets againts reference with minimap, using n threads.
+
+Renaming files in bash
+
+Indexing BAM files.
+
+*.bam
+SRR11621811.bam
+SRR11772640.bam
+SRR11851929.bam
+SRR11953870.bam
+SRR11954244.bam
+SRR12045940.bam
+SRR12272284.bam
+SRR12291581.bam
+Performing Variant Calling with freebayes:
+
+*.bam SRR11621811.bam SRR11772640.bam SRR11851929.bam SRR11953870.bam SRR11954244.bam SRR12045940.bam SRR12272284.bam SRR12291581.bam
+covid19-refseq.fasta
+SRR11621811.bam
+covid19-refseq.fasta
+SRR11772640.bam
+covid19-refseq.fasta
+SRR11851929.bam
+covid19-refseq.fasta
+SRR11953870.bam
+covid19-refseq.fasta
+SRR11954244.bam
+covid19-refseq.fasta
+SRR12045940.bam
+covid19-refseq.fasta
+SRR12272284.bam
+covid19-refseq.fasta
+SRR12291581.bam
+covid19-refseq.fasta
+Merging variants using jacquard
+
+for information, please see: https://jacquard.readthedocs.io/en/v0.42/overview.html#why-would-i-use-jacquard
+
+Merge VCFs using jacquard
+
+Time taken: 2

@@ -28,40 +28,39 @@ if [ ! "$l" ] || [ ! "$g" ] || [ ! "$a" ] || [ ! "$t" ]; then
 fi
 
 begin=`date +%s`
-
-echo "Downloading SRA files from the given list of accessions"
-prefetch --max-size 800G -O ./ --option-file ${l}
-echo "SRA files were downloaded in current directory"
-echo ""
-echo "Done"
-echo ""
-echo "Converting SRA files to fastq.gz"
-ls -p | grep SRR > sra_dirs
-while read i; do mv "$i"*.sralite .; done<sra_dirs
-SRA= ls -1 *.sralite
-for SRA in *.sralite; do fastq-dump --gzip ${SRA}
-done
-
-##################################################################################
-# Trimming downloaded Illumina datasets with fastp, using 16 threads (-w option) #
-##################################################################################
-
-echo "Trimming downloaded Illumina datasets with fastp."
-echo ""
-
-z= ls -1 *.fastq.gz
-for z in *.fastq.gz; do fastp -w ${t} -i ${z} -o ${z}.fastp
-gzip ${z}.fastp
-done
-
-######################
-# Indexing Reference #
-######################
-
-echo "Indexing Reference"
-echo ""
-samtools faidx ${g}
-
+#echo "Downloading SRA files from the given list of accessions"
+#prefetch --max-size 800G -O ./ --option-file ${l}
+#echo "SRA files were downloaded in current directory"
+#echo ""
+#echo "Done"
+#echo ""
+#echo "Converting SRA files to fastq.gz"
+#ls -p | grep SRR > sra_dirs
+#while read i; do mv "$i"*.sra .; done<sra_dirs
+#SRA= ls -1 *.sra
+#for SRA in *.sra; do fastq-dump --gzip ${SRA}
+#done
+#
+###################################################################################
+## Trimming downloaded Illumina datasets with fastp, using 16 threads (-w option) #
+###################################################################################
+#
+#echo "Trimming downloaded Illumina datasets with fastp."
+#echo ""
+#
+#z= ls -1 *.fastq.gz
+#for z in *.fastq.gz; do fastp -w ${t} -i ${z} -o ${z}.fastp
+#gzip ${z}.fastp
+#done
+#
+#######################
+## Indexing Reference #
+#######################
+#
+#echo "Indexing Reference"
+#echo ""
+#samtools faidx ${g}
+#
 ###########################################################################################
 # Aligning illumina datasets againts reference with minimap, using 20 threads (-t option) #
 ###########################################################################################
@@ -100,10 +99,13 @@ for f in *.bam; do samtools index ${f}; done
 
 echo "Performing Variant Calling with freebayes:"
 echo ""
-
-x= ls -1 *.bam
-for x in *.bam; do freebayes-parallel <(fasta_generate_regions.py ${g}.fai 2000) ${t} -f ${g} -F ${a} -b ${x} > ${x}.freebayes.vcf
-done
+ls *.bam > bam_list.txt
+while read x
+do
+    echo $x
+    echo $g
+    freebayes -f $g $x > eebayes.vcf
+done<bam_list.txt
 
 #######################################
 ### Merging variants using jacquard ###
