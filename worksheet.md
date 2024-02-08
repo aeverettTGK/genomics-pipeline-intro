@@ -2,15 +2,18 @@
 
 <!--- Write name below --->
 ## Name: 
-
+Alex Everett
 <!--- For this worksheet, answer the following questions --->
 
 ## Q1: What is a bioinformatics pipeline?
 Answer: 
-
+A sequence of algorithms used to process biological data.
 
 ## Q2: What are the three basic filetypes discussed in this repository? What information do they contain?
 Answer: 
+FASTA/FASTQ = Sequence data and quality scores (FASTQ)
+SAM = Sequence data aligned to a reference sequence
+VCF = Sites of sequence variation
 
 ## Q2: What does a general bioinformatics pipeline look like? Draw a schematic of a pipeline (using boxes and arrows) and add the image file name to the <insert-file-name-here> text below (png or jpg will work). Your schematic should include file types, program types (e.g., mapping program), and arrows between file types.
 ![Raw Read FastQC Quality](./<insert-file-name-here>)
