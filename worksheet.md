@@ -22,10 +22,13 @@ VCF = Sites of sequence variation
 ![Raw Read FastQC Quality](./<insert-file-name-here>)
 
 ## Q4: After running the genomics-pipeline-intro.sh script, how many variants are in merged.vcf?
-Answer: 
+Answer:
+1597
 
 ## Q5: What is the alternate allele depth of sample SRR11621811|unknown at site 25350 in contig NC_045512.2?
 Answer:
+N/A (the main BASH script kept throwing errors and wouldn't give me proper VCF files for anything).
 
 ## Q6: In what ways would you consider filtering the VCF? In other words, what criteria would you use to remove variants / genotypes from the dataset?
-Answer:
+Answer: 
+Probably the best thing I could think of filtering the VCF for would be based on quality scores. Variants with low quality scores could be removed from the VCF and leave variants more likely to be accurate. 
