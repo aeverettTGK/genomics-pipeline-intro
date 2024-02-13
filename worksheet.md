@@ -23,11 +23,11 @@ VCF = Sites of sequence variation
 
 ## Q4: After running the genomics-pipeline-intro.sh script, how many variants are in merged.vcf?
 Answer:
-1597
+133
 
 ## Q5: What is the alternate allele depth of sample SRR11621811|unknown at site 25350 in contig NC_045512.2?
 Answer:
-
+0
 
 ## Q6: In what ways would you consider filtering the VCF? In other words, what criteria would you use to remove variants / genotypes from the dataset?
 Answer:
